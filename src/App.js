@@ -7,6 +7,9 @@ import AboutContainer from "./containers/AboutContainer";
 import UsersContainer from "./containers/UsersContainer";
 import BlogContainer from "./containers/BlogContainer";
 import SpecificBlogContainer from "./containers/SpecificBlogContainer";
+import Footer from "./components/Footer";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
 function App() {
   return (
@@ -18,8 +21,11 @@ function App() {
         <Route path="/users" element={<UsersContainer />} />
         <Route path="/blog" element={<BlogContainer />} />
         <Route path="/specific-blog/:id" element={<SpecificBlogContainer />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
