@@ -1,8 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { handleToastNotification } from "../helper";
 
-const SignUpIn = () => {
+const SignIn = ({ handleUserRender }) => {
   const {
     register,
     handleSubmit,
@@ -10,11 +13,29 @@ const SignUpIn = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-    reset();
+    axios
+      .post("http://localhost:3500/binary/user/signin", data)
+      .then((res) => {
+        if (res.data.success === true) {
+          handleToastNotification(res.data.message, "success");
+          handleUserRender(res.data);
+          // localStorage.setItem("bti_mern_user_token", res.data.data.token);
+          // localStorage.setItem(
+          //   "bti_mern_local_user",
+          //   JSON.stringify(res.data.data)
+          // );
+          reset();
+        } else {
+          handleToastNotification(res.data.message, "error");
+        }
+      })
+      .catch((err) => {
+        handleToastNotification("Something went wrong", "error");
+      });
   };
   return (
-    <div>
+    <>
+      <ToastContainer />
       <div className="bg-gray-900 min-h-[70vh]">
         <div className="flex justify-center min-h-[70vh]">
           <div className="hidden lg:block lg:w-2/5">
@@ -84,8 +105,8 @@ const SignUpIn = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default SignUpIn;
+export default SignIn;

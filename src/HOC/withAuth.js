@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-// import verifyToken from "services/verifyToken";
-
 const withAuth = (WrappedComponent) => {
   return (props) => {
     const Router = useNavigate();
@@ -12,22 +10,17 @@ const withAuth = (WrappedComponent) => {
 
     useEffect(() => {
       checkToken();
+      // eslint-disable-next-line
     }, []);
 
     const checkToken = async () => {
-      const accessToken = localStorage.getItem("expert_token");
+      const accessToken = localStorage.getItem("bti_mern_user_token");
       // if no accessToken was found,then we redirect to "/" page.
       if (!accessToken) {
         Router("/sign-in", { replace: true });
       } else {
-        // we call the api that verifies the token.
-
-        // const data = await verifyToken(accessToken);
-        // if token was verified we set the state.
-        // console.log("token", data);
-
         const isLoggedIn = () => {
-          const token = localStorage.getItem("expert_token");
+          const token = localStorage.getItem("bti_mern_user_token");
           if (!token) {
             return false;
           }
@@ -42,7 +35,8 @@ const withAuth = (WrappedComponent) => {
           setVerified(true);
         } else {
           // If the token was fraud we first remove Consultancy  from localStorage and then redirect to "/"
-          localStorage.removeItem("expert_token");
+          localStorage.removeItem("bti_mern_user_token");
+          localStorage.removeItem("bti_mern_local_user");
           Router("/sign-in", { replace: true });
         }
       }

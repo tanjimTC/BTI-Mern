@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -12,27 +14,43 @@ const SignUpIn = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
     axios
-      .post("http://localhost:3500/binary/user", data)
+      .post("http://localhost:3500/binary/user/signup", data)
       .then((res) => {
-        console.log(res);
         if (res.data.success === true) {
-          alert("User created successfully");
+          handleToastNotification(res.data.message, "success");
+          reset();
         } else {
-          alert("Something went wrong");
+          handleToastNotification(res.data.message, "error");
         }
       })
       .catch((err) => {
-        console.log(err);
+        handleToastNotification("Something went wrong", "error");
       });
+  };
 
-    reset();
+  const handleToastNotification = (message, status) => {
+    let toastOptions = {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    };
+
+    if (status === "success") {
+      toast.success(message, toastOptions);
+    } else {
+      toast.error(message, toastOptions);
+    }
   };
 
   return (
     <div>
+      <ToastContainer />
       <div className="bg-gray-900 min-h-[70vh]">
         <div className="flex justify-center min-h-[70vh]">
           <div className="hidden lg:block lg:w-2/5">
