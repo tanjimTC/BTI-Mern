@@ -2,10 +2,10 @@ import React from 'react';
 import Hero from '../components/Hero';
 import Home from '../components/Home';
 
-const HomeContainer = () => {
+const HomeContainer = ({user}) => {
     return (
         <div>
-            <Hero/>
+            <Hero user={user}/>
             <Home />
         </div>
     );

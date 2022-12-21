@@ -38,7 +38,7 @@ function App() {
     <Router className="antialiased">
       <NavBar user={user} handleLogOut={handleLogOut} />
       <Routes>
-        <Route path="/" element={<HomeContainer />} />
+        <Route path="/" element={<HomeContainer user={user}/>} />
         <Route path="/about" element={<AboutContainer />} />
         <Route path="/users" element={<UsersContainer />} />
         <Route path="/blog" element={<BlogContainer />} />
