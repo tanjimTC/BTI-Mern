@@ -1,11 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 
 const SpecificBlog = () => {
-  const { id } = useParams();
   return (
     <div>
-      <h1>This is the specific blog page {id}</h1>
+      <h1>This is the specific blog page</h1>
     </div>
   );
 };
