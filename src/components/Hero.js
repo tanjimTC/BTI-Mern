@@ -38,7 +38,7 @@ const Hero = ({ user }) => {
   };
 
   return (
-    <section className="px-3  bg-neutral-100 lg:py-10 ">
+    <section className="px-3  bg-[#FEFBEA] lg:py-10 ">
       <ToastContainer />
       <div className="grid md:grid-cols-2 lg:grid-cols-2 items-center justify-items-center gap-5 min-h-[80vh]">
         <div className="p-3 order-2 lg:order-1 flex flex-col justify-center items-center">

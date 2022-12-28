@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SpecificBlog from "../components/SpecificBlog";
-import { blogs } from "../blogs";
+import axios from "axios";
 
 const SpecificBlogContainer = () => {
-  const [myBlog , setMyBlog] = useState({});
+  const [myBlog, setMyBlog] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    const myBlog = blogs.find((blog) => blog.id === parseInt(id));
-    setMyBlog(myBlog);
+    axios
+      .get(`http://localhost:3500/binary/blog/get/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setMyBlog(response.data.blog);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
-  return (
-    <div>
-      <h1>This is the specific blog page and the blog {id}</h1>
-      {myBlog && JSON.stringify(myBlog)}
-      <SpecificBlog />
-    </div>
-  );
+  return <div>{myBlog && <SpecificBlog myBlog={myBlog} />}</div>;
 };
 
 export default SpecificBlogContainer;

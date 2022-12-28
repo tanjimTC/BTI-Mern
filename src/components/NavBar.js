@@ -52,22 +52,25 @@ const NavBar = ({ user, handleLogOut }) => {
             <li>
               <Link
                 className="md:p-4 py-2 block hover:text-purple-400"
+                to="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="md:p-4 py-2 block hover:text-purple-400"
                 to="/about"
               >
                 About
               </Link>
             </li>
             <li>
-              <Link className="md:p-4 py-2 block hover:text-purple-400" to="/">
-                Pricing
-              </Link>
-            </li>
-            <li>
               <Link
                 className="md:p-4 py-2 block hover:text-purple-400"
-                to="/users"
+                to="/contact"
               >
-                Users
+                Contact
               </Link>
             </li>
             <li>

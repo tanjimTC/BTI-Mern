@@ -2,9 +2,9 @@ import React from "react";
 
 const Error = () => {
   return (
-    <div class="w-full h-[90vh] bg-[#F5F5F5] flex flex-col items-center justify-center">
+    <div className="w-full h-[90vh] bg-[#F5F5F5] flex flex-col items-center justify-center">
       <svg
-        class="w-1/2 md:w-1/3 lg:w-1/4 text-[#eda0a8]"
+        className="w-1/2 md:w-1/3 lg:w-1/4 text-[#eda0a8]"
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
         viewBox="0 0 1119.60911 699"
@@ -316,11 +316,11 @@ const Error = () => {
         ></path>
       </svg>
 
-      <div class="flex flex-col items-center justify-center">
-        <p class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider text-gray-600 mt-8">
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider text-gray-600 mt-8">
           Page Not Found
         </p>
-        <p class="md:text-lg xl:text-xl text-[#eda0a8] mt-4">
+        <p className="md:text-lg xl:text-xl text-[#eda0a8] mt-4">
           Whoops, something went wrong on our servers.
         </p>
       </div>

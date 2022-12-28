@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Error from "./components/Error";
 import HomeContainer from "./containers/HomeContainer";
 import AboutContainer from "./containers/AboutContainer";
-import UsersContainer from "./containers/UsersContainer";
 import BlogContainer from "./containers/BlogContainer";
 import SpecificBlogContainer from "./containers/SpecificBlogContainer";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import { useEffect, useState } from "react";
+import GetInTouchContainer from "./containers/GetInTouchContainer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,7 +40,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeContainer user={user}/>} />
         <Route path="/about" element={<AboutContainer />} />
-        <Route path="/users" element={<UsersContainer />} />
+        <Route path="/contact" element={<GetInTouchContainer />} />
         <Route path="/blog" element={<BlogContainer />} />
         <Route path="/specific-blog/:id" element={<SpecificBlogContainer />} />
         <Route path="/sign-up" element={<SignUp />} />

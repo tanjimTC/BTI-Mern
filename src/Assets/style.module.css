@@ -1,0 +1,17 @@
+.contactUsForm-wrapper{
+    @apply bg-gray-200 px-3 md:px-10 py-8 md:py-16 shadow-xl;
+}
+
+.contactUsForm-wrapper textarea{
+    @apply block;
+}
+
+.contactUsForm-label-icon{
+    font-size: 6px;
+    @apply inline-block text-red-500 ml-1 mb-2 mr-1;
+}
+
+.contactUsForm-submit-btn{
+    background: black;
+    @apply block text-[#EDA0A8] text-xl py-3 mt-3 col-span-2 lg:col-span-1 rounded-md;
+}
